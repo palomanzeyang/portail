@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+
+
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.badge-online {
+    background-color: #4CAF50;
+}
+
+.badge-offline {
+    background-color: #F44336;
+}

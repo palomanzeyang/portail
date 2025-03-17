@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+
+.card{
+	display:flex;
+	margin-top: 20px;
+	border-radius: 15px;
+	transition: background-color 0.3s ease;
+}
+.row{
+	justify-content: center;
+}
+.card:hover {
+	background-color: #e8e9eb;
+}
+/* .application{ */
+/* 	display:flex; */
+/* 	align-items:center; */
+/* 	padding:10px; */
+/* 	flex-direction:column; */
+/* 	border-radius: 10px; */
+/* 	box-shadow:0 2px 5px rgba(0, 0, 0, 0.1); */
+/* 	transition: box-shadow 0.3s ease-in-out; */
+/* } */
+
+/* .application:hover{ */
+/* 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); */
+/* } */

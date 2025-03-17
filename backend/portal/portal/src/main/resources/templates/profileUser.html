@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil utilisateur</title>
+    <link rel="shortcut icon" href="/image/Untitled.png" type="image/x-icon" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}">
+    <link th:href="@{vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link th:href="@{vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- NProgress -->
+    <link th:href="@{vendors/nprogress/nprogress.css}" rel="stylesheet">
+    <!-- iCheck -->
+   <link th:href="@{vendors/iCheck/skins/flat/green.css}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link th:href="@{build/css/custom.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body class="nav-md" style="background-color:  #AA0000;">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col" style="background-color:  #AA0000;">
+          <div class="left_col scroll-view" style="background-color:  #AA0000;">
+            <div class="navbar nav_title" style="border: 0; background-color:  #AA0000;">
+              <div>
+            		<p><img alt="logo UBA" th:src="@{/image/Renew_UBA.png}" style="width: 100px; text-align: center; height: auto;"></p>
+            	</div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="/image/Gost.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>Steve Zekeng</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a th:href="@{dashBoard}">Dashboard</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i> My applications <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a th:href="@{listApp}">List</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li><a th:href="@{portalWeb}"><i class="fa fa-laptop"></i> Portal Web </a>
+                    
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <nav class="nav navbar-nav">
+              <ul class=" navbar-right">
+                <li class="nav-item dropdown open" style="padding-left: 15px;">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    <img src="/image/Gost.jpg" alt="">Steve Zekeng
+                  </a>
+                  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"  href="@{profileUser}"> Profile</a>
+                    <a class="dropdown-item"  th:href="@{login}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  </div>
+                </li>
+
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+       
+        <!-- /top navigation -->
+
+        <!-- page content -->
+    <div class="right_col" role="main" style="height: 700px">
+          
+            <div class="page-title">
+              <div class="title_left">
+                <h2 style="text-align: center;"></h2>
+              </div>
+
+              
+
+            <div class="clearfix"></div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-card">
+                    <img src="/image/Gost.jpg" alt="Photo de profil" class="profile-pic">
+                    <h2 class="profile-name">Steve Zekeng</h2>
+                    <p class="profile-title">Stagiaire</p>
+                    <p class="profile-company"><i>UBA</i> Cameroun</p>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="label"><b>Email:</b></span> stevezekeng@gmail.com
+                        </li>
+                        <li class="list-group-item">
+                            <span class="label"><b>Téléphone:</b>&nbsp;</span><i class="fa fa-whatsapp"></i>&nbsp; +237 655 48 77 04
+                        </li>
+                        <li class="list-group-item">
+                            <span class="label"><b>Etablissement academique:</b></span> ISTAMA/INUBIL Douala Cameroun
+                        </li>
+                        <li class="list-group-item">
+                            <span class="label"><b>Formation:</b></span> Formation delocalisé de l'IUT D'EVRY en Developpement d'application web
+                        </li>
+                        <li class="list-group-item">
+                            <span class="label"><b>Réseaux sociaux:</b></span><br>
+                            <a href="#"><i class="fa fa-linkedin-square"> &nbsp; Steve Zekeng</i></a><br>
+                            <a href="#"><i class="fa fa-facebook-official"> &nbsp; Steve Zekeng</i></a><br>
+                            <a href="#"><i class="fa fa-github"> &nbsp; Steve Zekeng</i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="about-me">
+                    <h2>À propos de moi</h2>
+                    
+
+                    <div class="skills">
+                        <h3>Compétences</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">HTML</li>
+                            <li class="list-group-item">CSS</li>
+                            <li class="list-group-item">JavaScript</li>
+                            <li class="list-group-item">Bootstrap</li>
+                            <li class="list-group-item">Python</li>
+                            <li class="list-group-item">Java</li>
+                            <li class="list-group-item">WordPress</li>
+                        </ul>
+                    </div>
+
+                    <div class="projects">
+                        <h3>Qualites</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Esprit d'equipe</li>
+                            <li class="list-group-item">Esprit de leadership</li>
+                            <li class="list-group-item">Perseverant</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- /page content -->
+
+        
+      </div>
+      <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            copyright &copy;  UBACameroon 2024 | Powered by UBA 
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+    </div>
+    
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script th:src="@{vendors/jquery/dist/jquery.min.js}"></script>
+    <!-- Bootstrap -->
+   <script th:src="@{vendors/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+    <!-- FastClick -->
+    <script th:src="@{vendors/fastclick/lib/fastclick.js}"></script>
+    <!-- NProgress -->
+    <script th:src="@{vendors/nprogress/nprogress.js}"></script>
+    <!-- iCheck -->
+    <script th:src="@{vendors/iCheck/icheck.min.js}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script th:src="@{build/js/custom.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+    
+</body>
+</html>

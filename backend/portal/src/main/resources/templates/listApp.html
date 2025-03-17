@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/image/Untitled.png" type="image/x-icon" />
+    <title>Portail UBA</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}">
+    <link th:href="@{vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link th:href="@{vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- NProgress -->
+    <link th:href="@{vendors/nprogress/nprogress.css}" rel="stylesheet">
+    <!-- iCheck -->
+   <link th:href="@{vendors/iCheck/skins/flat/green.css}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link th:href="@{build/css/custom.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{css/style2.css}"> 
+    <link rel="stylesheet" th:href="@{assets/css/style2.css}">
+  
+
+
+  </head>
+
+  <body class="nav-md" style="background-color:  #AA0000;">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col" style="background-color:  #AA0000;">
+          <div class="left_col scroll-view" style="background-color:  #AA0000;">
+            <div class="navbar nav_title" style="border: 0; background-color:  #AA0000;">
+            	<div>
+            		<p><img alt="logo UBA" th:src="@{/image/Renew_UBA.png}" style="width: 100px; text-align: center; height: auto;"></p>
+            	</div>
+              
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="/image/Gost.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>Steve Zekeng</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a th:href="@{dashBoard}">Dashboard</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>My applications <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a th:href="@{listApp}">List</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li><a th:href="@{portalWeb}"><i class="fa fa-laptop"></i> Portal Web </a>
+                    
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <nav class="nav navbar-nav">
+              <ul class=" navbar-right">
+                <li class="nav-item dropdown open" style="padding-left: 15px;">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    <img src="image/Gost.jpg" alt="">Steve Zekeng
+                  </a>
+                  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"  th:href="@{profileUser}"> Profile</a>
+                    <a class="dropdown-item"  th:href="@{login}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  </div>
+                </li>
+
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+       
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main" style="height: 1100px">
+          
+            <div class="page-title">
+              <div class="title_left">
+                <h3 style="text-align: center;">Applications </h3>
+              </div>
+
+              
+
+            <div class="clearfix"></div>
+
+            <div class="row" >
+              <div class="container-fluid mt-2 col-sm-9" >
+                <div class="x_panel" th:switch="${app}" style="width: 800px;">
+                  
+                  <div class="x_content" th:case="*" >
+						<p><a id="add" class="btn btn-danger pull-right" th:href="@{/signup}"><i class="fa fa-plus"></i>&nbsp;Add new application  </a></p> <br><br>
+                    <table  id="example" class="table table-striped table-bordered" style="width:100%;">
+                      <thead>
+                        <tr>
+                          <th><input type="checkbox" id="checkall" /></th>
+                          <th>Id</th>
+                          <th>Name</th>
+                          <th>URL</th>
+                          <th>Statut actuel</th>
+                          <th>Icone</th>
+                          <th>Edit</th>
+                          <th>Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        <tr th:each="app : ${app}">
+                          <td><input type="checkbox" class="checkthis" /></td>
+                          <td th:text="${app.id}"></td>
+                          <td th:text="${app.nom}"></td>
+                          <td th:text="${app.url}"></td>
+                          <td>
+                          	  <span class="badge rounded-pill" th:classappend="${app.statutActuel == 'online' ? 'bg-success' : app.statutActuel == 'offline' ? 'bg-danger' : 'bg-danger'}">
+                <!--			    <span th:text="${app.statutActuel}"></span> -->
+							 </span>
+							 <!-- <a class="btn btn-light" th:href="@{/edited/{id}(id=${app.id})}"><i class="fa fa-share-square-o"></i>&nbsp;Share online</a> -->
+							 
+                          </td>
+                          <td th:text="${app.icone}"></td>
+                          
+                        
+							                          
+                          	<!-- <span th:if="${app.statutActuel == 'offline'}" >.</span>
+                          	<span th:if="${app.statutActuel == 'online'}" th:class="badge-success">.</span> -->
+                          
+                          
+                          <!-- <td th:field="${app.statut}" >
+	                          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#myModal">
+				    				updateStatut
+							  </button>
+							  <span class="badge badge-{{app.statut ? 'success' : 'danger' }}">.</span>
+                          </td> -->
+                          <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a class="btn btn-primary" th:href="@{/edit/{id}(id=${app.id})}"><i class="fa fa-pencil fa-fw"></i></a></p></td>
+                   		  <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a class="btn btn-danger" onclick="return confirm('Are you sure to do a Delete action?')" th:href="@{/delete/{id}(id=${app.id})}"><i class="fa fa-trash-o fa-lg"></i></a></p></td>
+                        </tr>
+                      </tbody>
+                       <tfoot>
+			            <tr>
+			              <th></th>
+			              <th>Id</th>
+                          <th>Name</th>
+                          <th>URL</th>
+                          <th>Statut actuel</th>
+                          <th>Icone</th>
+                          <th>Edit</th>
+                          <th>Delete</th>
+			            </tr>
+			        </tfoot>
+                    </table>
+				    
+					
+                							
+													  
+                  </div>
+                  
+                  
+                  
+                </div>
+              </div>
+
+				 
+            </div>
+          </div>
+        
+        <!-- /page content -->
+
+        
+      </div>
+      <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            copyright &copy;  UBACameroon 2024 | Powered by UBA 
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+    </div>
+    
+  
+
+    
+    
+   
+       
+    <!-- jQuery -->
+    <script th:src="@{vendors/jquery/dist/jquery.min.js}"></script>
+    <!-- Bootstrap -->
+   <script th:src="@{vendors/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+    <!-- FastClick -->
+    <script th:src="@{vendors/fastclick/lib/fastclick.js}"></script>
+    <!-- NProgress -->
+    <script th:src="@{vendors/nprogress/nprogress.js}"></script>
+    <!-- iCheck -->
+    <script th:src="@{vendors/iCheck/icheck.min.js}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script th:src="@{/build/js/custom.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+   
+    <script th:src="@{assets/js/js1.js}"></script>
+    <script th:src="@{assets/js/js2.js}"></script>
+    <script th:src="@{assets/js/js3.js}"></script>
+    <script th:src="@{assets/js/js4.js}"></script>
+    <script th:src="@{assets/js/js5.js}"></script>
+    <script th:src="@{assets/js/js6.js}"></script>
+    
+  </body>
+</html>

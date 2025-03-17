@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Portail UBA</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}">
+    <link th:href="@{vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link th:href="@{vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- NProgress -->
+    <link th:href="@{vendors/nprogress/nprogress.css}" rel="stylesheet">
+    <!-- iCheck -->
+   <link th:href="@{vendors/iCheck/skins/flat/green.css}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link th:href="@{build/css/custom.min.css}" rel="stylesheet">
+  </head>
+<body>
+<!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>Form Validation</h3>
+                        </div>
+
+                        
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2 style="text-align: center;">Edit Application</h2>
+                                    
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <form class="mt-3 " id="formulaire" action="#" method="post" th:action="@{/update/{id}(id=${app.id})}" th:object="${app}">
+                                        
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align form-label" for="nom">Name<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control"  th:field="*{nom}"  type="text" name="nom" placeholder="ex. Vendor Management" required="required" id="nom"/>
+                                                <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span><br>
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align form-label" for="url">URL<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" th:field="*{url}" type="url" name="url" placeholder="ex. https://www" required="required" id="url"/>
+                                                <span th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></span><br>
+                                            </div>
+                                        </div>
+                                       
+                                        
+                                        <div class="ln_solid">
+                                            <div class="form-group">
+                                                <div class="col-md-6 offset-md-3 mb-2 mt-3">
+                                                    <input class="btn btn-danger" type="submit" value="Update Apps" onclick="return confirm('Do you agree with the Update action?')">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+
+</body>
+</html>
